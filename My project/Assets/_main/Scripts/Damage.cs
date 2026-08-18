@@ -1,16 +1,16 @@
 using UnityEngine;
-
 public class Damage : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private int _Damage;
+    private void OnCollisionEnter3D(Collision collision)
     {
-        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            gameManager.RestarVida(_Damage);
+        }
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }
