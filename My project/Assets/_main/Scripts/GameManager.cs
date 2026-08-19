@@ -12,18 +12,12 @@ public class GameManager : MonoBehaviour
 
 
     public void RestarVida(int _Damage)
-
     {
         if (Life > 0)
-
         {
-
-
             Life -= _Damage;
             IUmanager.Colorvida(Color.red);
-            Debug.Log(" restar " + _Damage + " puntos de vida ");
             IUmanager.FillAmount_Colorvida(Life / 100f);
-
         }
 
         if (Life <= 0)
@@ -31,29 +25,20 @@ public class GameManager : MonoBehaviour
             Destroy(Jugador.gameObject);
             Debug.Log("Se muriooo");
         }
-        if (Life >= 80)
+
+        switch (Life)
         {
-            IUmanager.Colorvida(Color.green);
-        }
+            case int vida when vida >= 80:
+                IUmanager.Colorvida(Color.green);
+                break;
 
-        if (Life < 80)
+            case int n when n < 20:
+                IUmanager.Colorvida(Color.darkRed);
+                break;
 
-        {
-            IUmanager.Colorvida(Color.orange);
-
-        }
-
-        if (Life == 20)
-        {
-
-            IUmanager.Colorvida(Color.orange);
-        }
-
-        if (Life < 20)
-        {
-            IUmanager.Colorvida(Color.darkRed);
+            case int n when n < 80:
+                IUmanager.Colorvida(Color.orange);
+                break;
         }
     }
-
-
 }

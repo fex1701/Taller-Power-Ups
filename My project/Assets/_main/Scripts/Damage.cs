@@ -3,7 +3,7 @@ public class Damage : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private int _Damage;
-    private void OnCollisionEnter3D(Collision collision)
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
