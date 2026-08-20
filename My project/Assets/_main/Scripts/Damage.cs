@@ -1,13 +1,13 @@
 using UnityEngine;
-public class Damage : MonoBehaviour
+    public class Damage : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
-    [SerializeField] private int _Damage;
+    [SerializeField] private int _damage;
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            gameManager.RestarVida(_Damage);
+            gameManager.RestarVida(_damage);
         }
 
     }

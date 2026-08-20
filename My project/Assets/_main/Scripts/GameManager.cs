@@ -6,39 +6,24 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private int Life = 100;
-    [SerializeField] private PlayerMovement Jugador;
-    [SerializeField] private IUManager IUmanager;
-
+    [SerializeField] private int _life = 100;
+    [SerializeField] private PlayerMovement _jugador;
+    [SerializeField] private IUManager _iuManager;
 
     public void RestarVida(int _Damage)
     {
-        if (Life > 0)
+        if (_life > 0)
         {
-            Life -= _Damage;
-            IUmanager.Colorvida(Color.red);
-            IUmanager.FillAmount_Colorvida(Life / 100f);
+            _life -= _Damage;
+
+            _iuManager.ActualizarColorVida(_life);
+            _iuManager.FillAmount_Colorvida(_life / 100f);
         }
 
-        if (Life <= 0)
+        if (_life <= 0)
         {
-            Destroy(Jugador.gameObject);
+            _jugador.gameObject.SetActive(false);
             Debug.Log("Se muriooo");
-        }
-
-        switch (Life)
-        {
-            case int vida when vida >= 80:
-                IUmanager.Colorvida(Color.green);
-                break;
-
-            case int n when n < 20:
-                IUmanager.Colorvida(Color.darkRed);
-                break;
-
-            case int n when n < 80:
-                IUmanager.Colorvida(Color.orange);
-                break;
         }
     }
 }
