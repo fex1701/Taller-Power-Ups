@@ -26,4 +26,22 @@ public class GameManager : MonoBehaviour
             Debug.Log("Se muriooo");
         }
     }
+
+
+    public void CurarVida(int _curacion)
+    {
+        if (_life > 0)
+        {
+            _life += _curacion;
+
+            if (_life > 100)
+            {
+                _life = 100;
+            }
+
+            _iuManager.ActualizarColorVida(_life);
+            _iuManager.FillAmount_Colorvida(_life / 100f);
+
+        }
+    }
 }
