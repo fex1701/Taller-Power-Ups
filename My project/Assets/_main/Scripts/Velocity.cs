@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class Velocity : MonoBehaviour
+/*public class Velocity : MonoBehaviour
 {
     //private int velocity;
     // private int velocidad;
@@ -32,3 +32,4 @@ public class Velocity : MonoBehaviour
 
     
 }
+*/
