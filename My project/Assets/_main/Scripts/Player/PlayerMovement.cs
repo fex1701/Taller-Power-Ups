@@ -5,6 +5,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float velocity = 5f;
     [SerializeField] private float jumpForce = 5f;
+    [SerializeField] private Animator shieldAnimator;
+
+    [SerializeField] private GameObject shield;
     private void FixedUpdate()
     {
         Move();
@@ -43,4 +46,18 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    public void ActivateShield()
+    {
+        shield.SetActive(true);
+        ShieldAppear();
+    }
+    public void ShieldAppear()
+    {
+        shieldAnimator.SetTrigger("Appear");
+    }
+
+    public void ShieldDisappear()
+    {
+        shieldAnimator.SetTrigger("Disappear");
+    }
 }
