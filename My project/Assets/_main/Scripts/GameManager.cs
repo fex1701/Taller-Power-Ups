@@ -3,38 +3,41 @@ using System.Xml.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private int _life = 100;
+    [SerializeField] private int _vida = 100;
     [SerializeField] private PlayerMovement _jugador;
     [SerializeField] private IUManager _iuManager;
-    [SerializeField] private GameObject shield;
+    [SerializeField] private GameObject _escudo;
+
 
     public void RestarVida(int _Damage)
     {
         Debug.Log("RESTAR VIDA LLAMADO");
 
-        if (shield.activeSelf)
+        if (_escudo.activeSelf)
         {
             Debug.Log("ESCUDO BLOQUEÓ EL DAÑO");
-            shield.SetActive(false);
+            _escudo.SetActive(false);
             return;
         }
 
         Debug.Log("NO HAY ESCUDO, SE RESTA VIDA");
 
-        if (_life > 0)
+        if (_vida > 0)
         {
-            _life -= _Damage;
+            _vida -= _Damage;
 
-            _iuManager.ActualizarColorVida(_life);
-            _iuManager.FillAmount_Colorvida(_life / 100f);
+            _iuManager.ActualizarColorVida(_vida);
+            _iuManager.FillAmount_Colorvida(_vida / 100f);
         }
 
-        if (_life <= 0)
+        if (_vida <= 0)
         {
             _jugador.gameObject.SetActive(false);
+            Perdiste();
             Debug.Log("Se muriooo");
         }
     }
@@ -42,18 +45,31 @@ public class GameManager : MonoBehaviour
 
     public void CurarVida(int _curacion)
     {
-        if (_life > 0)
+        if (_vida > 0)
         {
-            _life += _curacion;
+            _vida += _curacion;
 
-            if (_life > 100)
+            if (_vida > 100)
             {
-                _life = 100;
+                _vida = 100;
             }
 
-            _iuManager.ActualizarColorVida(_life);
-            _iuManager.FillAmount_Colorvida(_life / 100f);
+            _iuManager.ActualizarColorVida(_vida);
+            _iuManager.FillAmount_Colorvida(_vida / 100f);
 
         }
+    }
+
+    public void Perdiste()
+    {
+        if (_vida <= 0)
+        {
+            _iuManager.juegoterminado();
+        }
+    }
+
+    public void Reiniciar()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

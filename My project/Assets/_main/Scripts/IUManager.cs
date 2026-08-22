@@ -4,6 +4,9 @@ using UnityEngine.UI;
 public class IUManager : MonoBehaviour
 {
     [SerializeField] private Image Contadordevida;
+    [SerializeField] private GameObject perdisteIU;
+
+    [SerializeField] private GameManager gameManager;
 
     private void Start()
     {
@@ -37,5 +40,10 @@ public class IUManager : MonoBehaviour
                 Colorvida(Color.orange);
                 break;
         }
+    }
+
+    public void juegoterminado()
+    {
+       perdisteIU.SetActive(true);
     }
 }
