@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Velocity
+  - muerte
   layers:
   - Default
   - TransparentFX

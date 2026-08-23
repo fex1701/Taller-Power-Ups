@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         if (_escudo.activeSelf)
         {
             Debug.Log("ESCUDO BLOQUEÓ EL DAÑO");
-            _jugador.BreakShield();
+            _jugador.RomperEscudo();
             return;
         }
 
@@ -72,4 +72,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    
 }

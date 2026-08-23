@@ -5,23 +5,23 @@ public class Damage : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private int _damage;
 
-    private bool puedeHacerDanio = true;
-    [SerializeField] private float tiempoEntreDanios = 0.5f;
+    private bool puedeHacerDaño = true;
+    [SerializeField] private float tiempoEntreDaños = 0.5f;
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Player") && puedeHacerDanio)
+        if (collision.gameObject.CompareTag("Player") && puedeHacerDaño)
         {
-            puedeHacerDanio = false;
+            puedeHacerDaño = false;
 
             gameManager.RestarVida(_damage);
 
-            Invoke(nameof(ReactivarDanio), tiempoEntreDanios);
+            Invoke(nameof(ReactivarDanio), tiempoEntreDaños);
         }
     }
 
     private void ReactivarDanio()
     {
-        puedeHacerDanio = true;
+        puedeHacerDaño = true;
     }
 }

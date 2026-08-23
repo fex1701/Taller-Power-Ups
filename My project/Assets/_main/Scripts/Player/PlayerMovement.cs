@@ -2,29 +2,42 @@ using UnityEngine;
 using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private PlayerController playerController;
+    [SerializeField] private PlayerController ControladordelJugador;
     [SerializeField] private Rigidbody rb;
-    [SerializeField] private float velocity = 5f;
-    [SerializeField] private float jumpForce = 5f;
-    [SerializeField] private Animator shieldAnimator;
+    [SerializeField] private float velocidad = 5f;
+    [SerializeField] private float salto = 5f;
+    [SerializeField] private Animator AnimadordeEscudo;
 
-    [SerializeField] private GameObject shield;
+    [SerializeField] private PlayerAnimations AnimacionesdelJugador;
+
+    private float normalVelocidad;
+
+    private float normalSalto;
+
+    private void Awake()
+    {
+        normalVelocidad = velocidad;
+        normalSalto= salto;
+    }
+
+
+    [SerializeField] private GameObject Escudo;
     private void FixedUpdate()
     {
-        Move();
-        RotateTowardsMovementDirection();
-        Jump();
+        Mover();
+        Rotacion();
+        Salto();
     }
-    private void Move()
+    private void Mover()
     {
-        Vector2 playerImputs = playerController.MoveValue;
+        Vector2 playerImputs = ControladordelJugador.ValordeMovimiento;
         Vector3 playerDirection = new Vector3(playerImputs.x, rb.linearVelocity.y, playerImputs.y);
 
-        rb.linearVelocity = new Vector3(playerImputs.x * velocity, rb.linearVelocity.y, playerImputs.y * velocity);
+        rb.linearVelocity = new Vector3(playerImputs.x * velocidad, rb.linearVelocity.y, playerImputs.y * velocidad);
     }
-    private void RotateTowardsMovementDirection()
+    private void Rotacion()
     {
-        Vector2 playerImputs = playerController.MoveValue;
+        Vector2 playerImputs = ControladordelJugador.ValordeMovimiento;
         if (playerImputs.sqrMagnitude <= 0.0f)
         {
             return;
@@ -37,42 +50,78 @@ public class PlayerMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         rb.MoveRotation(targetRotation);
     }
-    private void Jump()
+    private void Salto()
     {
-        if (!playerController.isJump || !playerController.isGround)
+        if (!ControladordelJugador.estaSaltando || !ControladordelJugador.EsSuelo)
         {
             return;
         }
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, jumpForce, rb.linearVelocity.z);
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, salto, rb.linearVelocity.z);
     }
 
-
-    public void ActivateShield()
+    public void IncrementoSalto (float amount)
     {
-        shield.SetActive(true);
-        ShieldAppear();
+        salto += amount;
     }
-    public void ShieldAppear()
+
+    public void IncrementoVelocidad (float amount)
     {
-        shieldAnimator.SetTrigger("Appear");
+        velocidad += amount;
     }
 
-    public void ShieldDisappear()
+    public void DecrementoVelocidadySalto (float amount)
     {
-        shieldAnimator.SetTrigger("Disappear");
+        velocidad = -5f;
+        salto = 10;
     }
-
-
-    public void BreakShield()
+    public IEnumerator BonusSpeed(int time)
     {
-        ShieldDisappear();
-        StartCoroutine(DisableShield());
+        //incremento
+        yield return new WaitForSeconds(time);
+        //des
+        velocidad = normalVelocidad;
+        salto = normalSalto;
+        Debug.Log("revertido");
+
+        AnimacionesdelJugador.DesactivarAnimaciondeVelocidad();
     }
 
-    private IEnumerator DisableShield()
+    public void ActivateSeedPowerUp(float amount, int time)
+    {
+        IncrementoVelocidad(amount);
+        StartCoroutine(BonusSpeed(time));
+        AnimacionesdelJugador.ActivarAnimaciondeVelocidad();
+        IncrementoSalto(amount);
+    }
+
+
+
+    public void ActivarEscudo()
+    {
+        Escudo.SetActive(true);
+        EscudoAparece();
+    }
+    public void EscudoAparece()
+    {
+        AnimadordeEscudo.SetTrigger("Appear");
+    }
+
+    public void EscudoDesaparece()
+    {
+        AnimadordeEscudo.SetTrigger("Disappear");
+    }
+
+
+    public void RomperEscudo()
+    {
+        EscudoDesaparece();
+        StartCoroutine(DesactivarEscudo());
+    }
+
+    private IEnumerator DesactivarEscudo()
     {
         yield return new WaitForSeconds(3f);
 
-        shield.SetActive(false);
+        Escudo.SetActive(false);
     }
 }

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9456f393ec5baf4288ac308cffc3ecb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  Life: 100
-  Jugador: {fileID: 0}
-  IUmanager: {fileID: 0}
+  _vida: 100
+  _jugador: {fileID: 7292137931478198191, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
+  _iuManager: {fileID: 3911940747812308602, guid: 59a7b62a4c3698a44bcf2462d14a35d9, type: 3}
+  _escudo: {fileID: 0}
