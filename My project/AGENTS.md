@@ -2,7 +2,7 @@
 - Project name: My project
 - Unity version: Unity 6000.3.9f1
 - Active game object:
-  - Name: Daño
-  - Tag: Untagged
+  - Name: Isla 2
+  - Tag: Ground
   - Layer: Default
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
