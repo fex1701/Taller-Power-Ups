@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerController playerController;
@@ -59,5 +60,19 @@ public class PlayerMovement : MonoBehaviour
     public void ShieldDisappear()
     {
         shieldAnimator.SetTrigger("Disappear");
+    }
+
+
+    public void BreakShield()
+    {
+        ShieldDisappear();
+        StartCoroutine(DisableShield());
+    }
+
+    private IEnumerator DisableShield()
+    {
+        yield return new WaitForSeconds(3f);
+
+        shield.SetActive(false);
     }
 }
