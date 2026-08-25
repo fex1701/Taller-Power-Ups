@@ -6,7 +6,7 @@ public class Velocity : MonoBehaviour
 
 
     [SerializeField] private float IncrementoVelocidad = 5f;
-    private float Velocidad = 10f;
+    
     [SerializeField] private PlayerMovement MovimientodelJugador;
 
     [SerializeField] private float IncrementodeVelocidadSalto = 10f;

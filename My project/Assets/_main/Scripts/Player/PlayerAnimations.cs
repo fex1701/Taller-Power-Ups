@@ -6,11 +6,7 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private static readonly int IsRunningParameter =
-        Animator.StringToHash("IsRunning");
-
-    private static readonly int IsJumpingParameter =
-        Animator.StringToHash("IsGround");
+    
     // Update is called once per frame
     void Update()
     {
@@ -32,34 +28,17 @@ public class PlayerAnimations : MonoBehaviour
     {
 
 
-        //animator.SetBool("IsGround", playerController.isJump);
+        
 
        bool IsJumping = playerController.estaSaltando;
 
-        //animator.SetBool("IsGround", IsJumping);
 
-        if (IsJumping == true)
-        {
-            animator.SetBool("IsJumping", true);
-            
-        }
-        if (IsJumping == false)
-        {
-            animator.SetBool("IsJumping", false);
-            
-        }
 
-        if (playerController.EsSuelo == true)
-        {
-            animator.SetBool("IsGround", true);
-        }
+        animator.SetBool("IsJumping", IsJumping);
 
-        if (playerController.EsSuelo == false)
-        {
-            animator.SetBool("IsGround", false);
-        }
+        animator.SetBool("IsGround", playerController.EsSuelo);
 
-       if (playerController.estaSaltando == false && playerController.EsSuelo == false)
+        if (playerController.estaSaltando == false && playerController.EsSuelo == false)
         {
             animator.SetBool("IsRunning", false);
         }

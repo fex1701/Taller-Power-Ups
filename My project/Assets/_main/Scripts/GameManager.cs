@@ -15,16 +15,16 @@ public class GameManager : MonoBehaviour
 
     public void RestarVida(int _Damage)
     {
-        Debug.Log("RESTAR VIDA LLAMADO");
+        Debug.Log("resta vida");
 
         if (_escudo.activeSelf)
         {
-            Debug.Log("ESCUDO BLOQUEÓ EL DAÑO");
+            Debug.Log("escudo bloquea");
             _jugador.RomperEscudo();
             return;
         }
 
-        Debug.Log("NO HAY ESCUDO, SE RESTA VIDA");
+        Debug.Log("se rompio el escudo, se resta vida");
 
         if (_vida > 0)
         {

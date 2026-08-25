@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float velocidad = 5f;
     [SerializeField] private float salto = 5f;
     [SerializeField] private Animator AnimadordeEscudo;
-
+    [SerializeField] private GameObject Escudo;
     [SerializeField] private PlayerAnimations AnimacionesdelJugador;
 
     private float normalVelocidad;
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    [SerializeField] private GameObject Escudo;
+    
     private void FixedUpdate()
     {
         Mover();
@@ -31,7 +31,7 @@ public class PlayerMovement : MonoBehaviour
     private void Mover()
     {
         Vector2 playerImputs = ControladordelJugador.ValordeMovimiento;
-        Vector3 playerDirection = new Vector3(playerImputs.x, rb.linearVelocity.y, playerImputs.y);
+        new Vector3(playerImputs.x, rb.linearVelocity.y, playerImputs.y);
 
         rb.linearVelocity = new Vector3(playerImputs.x * velocidad, rb.linearVelocity.y, playerImputs.y * velocidad);
     }
@@ -69,11 +69,7 @@ public class PlayerMovement : MonoBehaviour
         velocidad += amount;
     }
 
-    public void DecrementoVelocidadySalto (float amount)
-    {
-        velocidad = -5f;
-        salto = 10;
-    }
+    
     public IEnumerator BonusSpeed(int time)
     {
         //incremento
