@@ -8,9 +8,13 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private int _vida = 100;
-    [SerializeField] private PlayerMovement _jugador;
+    [SerializeField] private PlayerMovement _movimientodeljugador;
     [SerializeField] private IUManager _iuManager;
     [SerializeField] private GameObject _escudo;
+
+    [SerializeField] private GameObject _player;
+
+    [SerializeField] private PlayerController _playerController;
 
 
     public void RestarVida(int _Damage)
@@ -20,7 +24,7 @@ public class GameManager : MonoBehaviour
         if (_escudo.activeSelf)
         {
             Debug.Log("escudo bloquea");
-            _jugador.RomperEscudo();
+            _movimientodeljugador.RomperEscudo();
             return;
         }
 
@@ -36,10 +40,11 @@ public class GameManager : MonoBehaviour
 
         if (_vida <= 0)
         {
-            _jugador.gameObject.SetActive(false);
+            _movimientodeljugador.gameObject.SetActive(false);
             Perdiste();
             Debug.Log("Se muriooo");
         }
+
     }
 
 
@@ -64,8 +69,11 @@ public class GameManager : MonoBehaviour
     {
         if (_vida <= 0)
         {
+            _player.SetActive(false);
             _iuManager.juegoterminado();
         }
+
+       
     }
 
     public void Reiniciar()

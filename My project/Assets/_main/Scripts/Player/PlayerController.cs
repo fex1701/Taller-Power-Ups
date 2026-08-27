@@ -34,11 +34,7 @@ public class PlayerController : MonoBehaviour
             EsSuelo = true;
         }
 
-        if (collision.gameObject.CompareTag("muerte"))
-        {
-            _iuManager.juegoterminado();
-            gameObject.SetActive(false);
-        }
+        
     }
 
     private void OnCollisionExit(Collision collision) 

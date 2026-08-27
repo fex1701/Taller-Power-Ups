@@ -18,8 +18,13 @@ public class Damage : MonoBehaviour
 
             Invoke(nameof(ReactivarDanio), tiempoEntreDaños);
         }
-    }
 
+        if (collision.gameObject.CompareTag("muerte"))
+        {
+
+
+        }
+    }
     private void ReactivarDanio()
     {
         puedeHacerDaño = true;
