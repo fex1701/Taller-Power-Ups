@@ -84730,16 +84730,28 @@ PrefabInstance:
       value: Saltar Accion
       objectReference: {fileID: 0}
     - target: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.73484
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.73484
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.73484
+      objectReference: {fileID: 0}
+    - target: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.91
+      value: -4.9101
       objectReference: {fileID: 0}
     - target: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.49
+      value: 2.2105
       objectReference: {fileID: 0}
     - target: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -178.05
+      value: -177.91
       objectReference: {fileID: 0}
     - target: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
       propertyPath: m_LocalRotation.w
@@ -108767,7 +108779,7 @@ Transform:
   m_GameObject: {fileID: 858924860}
   serializedVersion: 2
   m_LocalRotation: {x: 0.25340137, y: -0.000000005743948, z: -4.5700968e-10, w: 0.9673613}
-  m_LocalPosition: {x: -4.95081, y: 7.79, z: -182.07889}
+  m_LocalPosition: {x: -4.9400887, y: 7.436602, z: -181.93123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137751,7 +137763,7 @@ Transform:
   m_GameObject: {fileID: 1219246966}
   serializedVersion: 2
   m_LocalRotation: {x: 0.2534014, y: -0.000000006295661, z: 0.0000000016491556, w: 0.9673612}
-  m_LocalPosition: {x: -4.95081, y: 7.79, z: -182.07889}
+  m_LocalPosition: {x: -4.9400887, y: 7.436602, z: -181.93123}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
