@@ -6,9 +6,17 @@ public class PlayerAnimations : MonoBehaviour
 
     [SerializeField] private PlayerController playerController;
     [SerializeField] private Animator animator;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     
+
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
     // Update is called once per frame
+
+    private void Start()
+    {
+        
+    }
     void Update()
     {
         ActualizarAnimaciondeMovimiento();
@@ -21,7 +29,7 @@ public class PlayerAnimations : MonoBehaviour
 
         animator.SetBool("IsRunning", IsRunning);
         
-       
+      
 
     }
 
