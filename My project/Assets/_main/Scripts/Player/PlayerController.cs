@@ -11,14 +11,13 @@ public class PlayerController : MonoBehaviour
     public Vector2 ValordeMovimiento { get; private set; }
     public bool estaSaltando { get; private set; }
 
-    public bool EsSuelo;
 
     void Awake()
     {
         _moverAccion = InputSystem.actions.FindAction("Move");
         _SaltarAccion = InputSystem.actions.FindAction("Jump");
 
-        Physics.gravity = new Vector3(0f, -100f, 0f);
+        Physics.gravity = new Vector3(0f, -70f, 0f);
     }
 
     void Update()
@@ -27,23 +26,7 @@ public class PlayerController : MonoBehaviour
         estaSaltando = _SaltarAccion.IsPressed();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            EsSuelo = true;
-        }
-
-        
-    }
-
-    private void OnCollisionExit(Collision collision) 
-    { 
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            EsSuelo = false;
-        }
-    }
+ 
 
   
 }

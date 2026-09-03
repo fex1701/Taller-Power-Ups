@@ -5,6 +5,7 @@ public class Damage : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private int _damage;
 
+
     private bool puedeHacerDaño = true;
     [SerializeField] private float tiempoEntreDaños = 0.5f;
 
@@ -19,11 +20,7 @@ public class Damage : MonoBehaviour
             Invoke(nameof(ReactivarDanio), tiempoEntreDaños);
         }
 
-        if (collision.gameObject.CompareTag("muerte"))
-        {
-
-
-        }
+     
     }
     private void ReactivarDanio()
     {

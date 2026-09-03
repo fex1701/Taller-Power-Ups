@@ -16,6 +16,20 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private PlayerController _playerController;
 
+    [SerializeField] private float _alturademuerte = -10f;
+    [SerializeField] private bool _MurioPorAltura = false;
+
+    [SerializeField] private bool[] gemas = new bool[5];
+    [SerializeField] private GameObject puerta;
+
+    private void Update()
+    {
+        if (!_MurioPorAltura && _player.activeSelf && _player.transform.position.y < _alturademuerte)
+        {
+            _MurioPorAltura = true;
+            MuerteInstantanea();
+        }
+    }
 
     public void RestarVida(int _Damage)
     {
@@ -73,7 +87,7 @@ public class GameManager : MonoBehaviour
             _iuManager.juegoterminado();
         }
 
-       
+
     }
 
     public void Reiniciar()
@@ -81,5 +95,35 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    
+    public void MuerteInstantanea()
+    {
+        _player.SetActive(false);
+        _iuManager.juegoterminado();
+
+    }
+
+    public void RecogerGema(int numeroGema)
+    {
+        gemas[numeroGema] = true;
+
+        ComprobarGemas();
+    }
+
+    private void ComprobarGemas()
+    {
+        for (int i = 0; i < gemas.Length; i++)
+        {
+            if (gemas[i] == false)
+            {
+                return;
+            }
+        }
+
+        AbrirPuerta();
+    }
+
+    private void AbrirPuerta()
+    {
+        puerta.SetActive(false);
+    }
 }

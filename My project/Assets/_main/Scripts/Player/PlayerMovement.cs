@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float salto = 5f;
     [SerializeField] private Animator AnimadordeEscudo;
     [SerializeField] private GameObject Escudo;
+
+    [SerializeField] private GroundCheck groundCheck;
     [SerializeField] private PlayerAnimations AnimacionesdelJugador;
 
     private float normalVelocidad;
@@ -52,11 +54,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Salto()
     {
-        if (!ControladordelJugador.estaSaltando || !ControladordelJugador.EsSuelo)
+        if (!ControladordelJugador.estaSaltando || !groundCheck.EsSuelo)
         {
             return;
         }
-        rb.linearVelocity = new Vector3(rb.linearVelocity.x, salto, rb.linearVelocity.z);
+
+        rb.AddForce(Vector3.up * salto, ForceMode.Impulse);
     }
 
     public void IncrementoSalto (float amount)
