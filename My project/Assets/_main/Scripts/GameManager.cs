@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool _MurioPorAltura = false;
 
     [SerializeField] private bool[] gemas = new bool[5];
-    [SerializeField] private GameObject puerta;
+    [SerializeField] private Collider colliderPuerta;
 
     private void Update()
     {
@@ -124,6 +124,17 @@ public class GameManager : MonoBehaviour
 
     private void AbrirPuerta()
     {
-        puerta.SetActive(false);
+        colliderPuerta.isTrigger = true;
+    }
+    public void IrAlSiguienteNivel(Transform posicionMeta)
+    {
+        _player.transform.position = posicionMeta.position;
+
+        for (int i = 0; i < gemas.Length; i++)
+        {
+            gemas[i] = false;
+        }
+
+        colliderPuerta.isTrigger = false;
     }
 }
