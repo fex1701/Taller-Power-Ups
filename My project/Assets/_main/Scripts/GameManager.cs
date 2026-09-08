@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool[] gemas = new bool[5];
     [SerializeField] private Collider colliderPuerta;
 
+    [SerializeField] private int siguienteNivel;
+
     private void Update()
     {
         if (!_MurioPorAltura && _player.activeSelf && _player.transform.position.y < _alturademuerte)
@@ -126,15 +128,10 @@ public class GameManager : MonoBehaviour
     {
         colliderPuerta.isTrigger = true;
     }
-    public void IrAlSiguienteNivel(Transform posicionMeta)
+
+
+    public void IrAlSiguienteNivel()
     {
-        _player.transform.position = posicionMeta.position;
-
-        for (int i = 0; i < gemas.Length; i++)
-        {
-            gemas[i] = false;
-        }
-
-        colliderPuerta.isTrigger = false;
+        SceneManager.LoadScene(siguienteNivel);
     }
 }
