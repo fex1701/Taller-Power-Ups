@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Animator AnimadordeEscudo;
     [SerializeField] private GameObject Escudo;
 
+    [SerializeField] private bool saltoRealizado;
     [SerializeField] private GroundCheck groundCheck;
     [SerializeField] private PlayerAnimations AnimacionesdelJugador;
 
@@ -52,14 +53,19 @@ public class PlayerMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         rb.MoveRotation(targetRotation);
     }
+   
+
     private void Salto()
     {
-        if (!ControladordelJugador.estaSaltando || !groundCheck.EsSuelo)
+        if (!ControladordelJugador.estaSaltando || !groundCheck.EsSuelo || saltoRealizado)
         {
             return;
         }
 
+        saltoRealizado = true;
+
         rb.AddForce(Vector3.up * salto, ForceMode.Impulse);
+
     }
 
     public void IncrementoSalto (float amount)
@@ -122,5 +128,13 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         Escudo.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (!groundCheck.EsSuelo)
+        {
+            saltoRealizado = false;
+        }
     }
 }

@@ -108,9 +108,10 @@ public class GameManager : MonoBehaviour
     {
         gemas[numeroGema] = true;
 
+        _iuManager.MostrarGema(numeroGema);
+
         ComprobarGemas();
     }
-
     private void ComprobarGemas()
     {
         for (int i = 0; i < gemas.Length; i++)

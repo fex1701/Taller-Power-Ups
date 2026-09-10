@@ -5,6 +5,7 @@ public class IUManager : MonoBehaviour
 {
     [SerializeField] private Image Contadordevida;
     [SerializeField] private GameObject perdisteIU;
+    [SerializeField] private GameObject[] imagenesGemas;
 
     [SerializeField] private GameManager gameManager;
 
@@ -45,5 +46,11 @@ public class IUManager : MonoBehaviour
     public void juegoterminado()
     {
        perdisteIU.SetActive(true);
+    }
+
+
+    public void MostrarGema(int numeroGema)
+    {
+        imagenesGemas[numeroGema].SetActive(true);
     }
 }
