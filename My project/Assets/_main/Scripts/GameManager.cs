@@ -60,9 +60,7 @@ public class GameManager : MonoBehaviour
             Perdiste();
             Debug.Log("Se muriooo");
         }
-
     }
-
 
     public void CurarVida(int _curacion)
     {
@@ -77,7 +75,6 @@ public class GameManager : MonoBehaviour
 
             _iuManager.ActualizarColorVida(_vida);
             _iuManager.FillAmount_Colorvida(_vida / 100f);
-
         }
     }
 
@@ -88,12 +85,11 @@ public class GameManager : MonoBehaviour
             _player.SetActive(false);
             _iuManager.juegoterminado();
         }
-
-
     }
 
     public void Reiniciar()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -101,7 +97,6 @@ public class GameManager : MonoBehaviour
     {
         _player.SetActive(false);
         _iuManager.juegoterminado();
-
     }
 
     public void RecogerGema(int numeroGema)
@@ -112,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         ComprobarGemas();
     }
+
     private void ComprobarGemas()
     {
         for (int i = 0; i < gemas.Length; i++)
@@ -130,9 +126,28 @@ public class GameManager : MonoBehaviour
         colliderPuerta.isTrigger = true;
     }
 
-
     public void IrAlSiguienteNivel()
     {
         SceneManager.LoadScene(siguienteNivel);
+    }
+
+    // PAUSA
+
+    public void Pausar()
+    {
+        Time.timeScale = 0f;
+        _iuManager.MostrarPausa();
+    }
+
+    public void Reanudar()
+    {
+        Time.timeScale = 1f;
+        _iuManager.OcultarPausa();
+    }
+
+    public void Salir()
+    {
+        Time.timeScale = 1f;
+        Application.Quit();
     }
 }

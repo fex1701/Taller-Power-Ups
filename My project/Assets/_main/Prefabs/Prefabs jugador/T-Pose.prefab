@@ -172,7 +172,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e242679362349e42a7af94bf1b0bce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  isGround: 0
+  _moverAccion:
+    m_Name: Mover Accion
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 6e1c2ca1-5247-4e64-ae6b-2070182547c1
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _SaltarAccion:
+    m_Name: Saltar Accion
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 1b9d2df1-6366-46d1-a4c3-c26bd9d0f4cd
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  _iuManager: {fileID: 0}
 --- !u!114 &2132231021267352869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,10 +203,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfd72dce53c483f45b7bcd7e90a8eb16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  playerController: {fileID: 2444390866123085245}
+  ControladordelJugador: {fileID: 0}
   rb: {fileID: 2824729055242276580}
-  velocity: 15
-  jumpForce: 30
+  velocidad: 5
+  salto: 5
+  AnimadordeEscudo: {fileID: 0}
+  Escudo: {fileID: 0}
+  saltoRealizado: 0
+  groundCheck: {fileID: 0}
+  AnimacionesdelJugador: {fileID: 0}
 --- !u!114 &6475401044648320074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -202,4 +225,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAnimations
   playerController: {fileID: 2444390866123085245}
+  groundCheck: {fileID: 0}
   animator: {fileID: 3843950903280302755}

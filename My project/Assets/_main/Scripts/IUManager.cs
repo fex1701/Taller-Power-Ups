@@ -7,6 +7,10 @@ public class IUManager : MonoBehaviour
     [SerializeField] private GameObject perdisteIU;
     [SerializeField] private GameObject[] imagenesGemas;
 
+    [SerializeField] private GameObject menuPausa;
+
+    [SerializeField] private GameObject BotonPausa;
+
     [SerializeField] private GameManager gameManager;
 
     private void Start()
@@ -45,12 +49,26 @@ public class IUManager : MonoBehaviour
 
     public void juegoterminado()
     {
-       perdisteIU.SetActive(true);
+        perdisteIU.SetActive(true);
+        BotonPausa.SetActive(false);
+
     }
 
 
     public void MostrarGema(int numeroGema)
     {
         imagenesGemas[numeroGema].SetActive(true);
+    }
+
+
+    public void MostrarPausa()
+    {
+        menuPausa.SetActive(true);
+    }
+
+    public void OcultarPausa()
+    {
+        menuPausa.SetActive(false);
+
     }
 }
