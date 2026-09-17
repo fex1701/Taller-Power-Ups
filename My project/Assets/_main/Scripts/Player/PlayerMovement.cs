@@ -7,15 +7,21 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float velocidad = 5f;
     [SerializeField] private float salto = 5f;
+
+
+
     [SerializeField] private Animator AnimadordeEscudo;
     [SerializeField] private GameObject Escudo;
     [SerializeField] private PlayerAnimations AnimacionesdelJugador;
     [SerializeField] private TMP_Text NumeroVelocidad;
     [SerializeField] private GameObject ContadorVelocidad;
+    
 
     private float normalVelocidad;
 
     private float normalSalto;
+
+    
 
     private int cantidadVelocidad = 0;
     private void Awake()
@@ -85,6 +91,9 @@ public class PlayerMovement : MonoBehaviour
         NumeroVelocidad.text = cantidadVelocidad.ToString();
         ContadorVelocidad.SetActive(false);
 
+       
+        
+
         Debug.Log("revertido");
 
         AnimacionesdelJugador.DesactivarAnimaciondeVelocidad();
@@ -109,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Escudo.SetActive(true);
         EscudoAparece();
+        
     }
     public void EscudoAparece()
     {

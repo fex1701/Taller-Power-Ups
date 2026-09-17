@@ -9,7 +9,7 @@ public class Shield : MonoBehaviour
             PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
 
             playerMovement.ActivarEscudo();
-
+            
             Destroy(gameObject);
         }
     }
