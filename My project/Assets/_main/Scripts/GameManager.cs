@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private int siguienteNivel;
 
+    [SerializeField] private AudioManager _audioManager;
+
     private void Update()
     {
         if (!_MurioPorAltura && _player.activeSelf && _player.transform.position.y < _alturademuerte)
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour
         {
             _vida -= _Damage;
 
+            _audioManager.SonidoDaño();
+
             _iuManager.ActualizarColorVida(_vida);
             _iuManager.FillAmount_Colorvida(_vida / 100f);
         }
@@ -58,6 +62,7 @@ public class GameManager : MonoBehaviour
         {
             _movimientodeljugador.gameObject.SetActive(false);
             Perdiste();
+
             Debug.Log("Se muriooo");
         }
     }
@@ -83,21 +88,30 @@ public class GameManager : MonoBehaviour
         if (_vida <= 0)
         {
             _player.SetActive(false);
+            _audioManager.SonidoMuerte();
             _iuManager.juegoterminado();
         }
     }
 
+    // REINICIAR NIVEL ACTUAL
+
     public void Reiniciar()
     {
         Time.timeScale = 1f;
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
+    // MUERTE INSTANTÁNEA
 
     public void MuerteInstantanea()
     {
         _player.SetActive(false);
+        _audioManager.SonidoMuerte();
         _iuManager.juegoterminado();
     }
+
+    // GEMAS
 
     public void RecogerGema(int numeroGema)
     {
@@ -126,8 +140,12 @@ public class GameManager : MonoBehaviour
         colliderPuerta.isTrigger = true;
     }
 
+    // NIVELES
+
     public void IrAlSiguienteNivel()
     {
+        Time.timeScale = 1f;
+
         SceneManager.LoadScene(siguienteNivel);
     }
 
@@ -136,18 +154,44 @@ public class GameManager : MonoBehaviour
     public void Pausar()
     {
         Time.timeScale = 0f;
+
         _iuManager.MostrarPausa();
     }
 
     public void Reanudar()
     {
         Time.timeScale = 1f;
+
         _iuManager.OcultarPausa();
+    }
+
+    // MENU PRINCIPAL
+
+    public void Play()
+    {
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene("Plataforma");
+    }
+
+    public void Creditos()
+    {
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene("Creditos");
+    }
+
+    public void VolverAlMenu()
+    {
+        Time.timeScale = 1f;
+
+        SceneManager.LoadScene("Menu");
     }
 
     public void Salir()
     {
         Time.timeScale = 1f;
+
         Application.Quit();
     }
 }
