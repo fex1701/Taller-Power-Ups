@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Velocity
   - muerte
+  - Enemy
   layers:
   - Default
   - TransparentFX

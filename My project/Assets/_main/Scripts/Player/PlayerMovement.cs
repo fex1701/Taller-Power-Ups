@@ -1,22 +1,32 @@
-using UnityEngine;
 using System.Collections;
+using TMPro;
+using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private PlayerController ControladordelJugador;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private float velocidad = 5f;
     [SerializeField] private float salto = 5f;
+
+
+
     [SerializeField] private Animator AnimadordeEscudo;
     [SerializeField] private GameObject Escudo;
 
     [SerializeField] private bool saltoRealizado;
     [SerializeField] private GroundCheck groundCheck;
     [SerializeField] private PlayerAnimations AnimacionesdelJugador;
+    [SerializeField] private TMP_Text NumeroVelocidad;
+    [SerializeField] private GameObject ContadorVelocidad;
+    
 
     private float normalVelocidad;
 
     private float normalSalto;
 
+    
+
+    private int cantidadVelocidad = 0;
     private void Awake()
     {
         normalVelocidad = velocidad;
@@ -80,11 +90,18 @@ public class PlayerMovement : MonoBehaviour
 
     public IEnumerator BonusSpeed(int time)
     {
-        //incremento
         yield return new WaitForSeconds(time);
-        //des
+
         velocidad = normalVelocidad;
         salto = normalSalto;
+
+        cantidadVelocidad = 0;
+        NumeroVelocidad.text = cantidadVelocidad.ToString();
+        ContadorVelocidad.SetActive(false);
+
+       
+        
+
         Debug.Log("revertido");
 
         AnimacionesdelJugador.DesactivarAnimaciondeVelocidad();
@@ -96,6 +113,11 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(BonusSpeed(time));
         AnimacionesdelJugador.ActivarAnimaciondeVelocidad();
         IncrementoSalto(amount);
+
+        cantidadVelocidad++;
+        NumeroVelocidad.text = cantidadVelocidad.ToString();
+
+        ContadorVelocidad.SetActive(true);
     }
 
 
@@ -104,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         Escudo.SetActive(true);
         EscudoAparece();
+        
     }
     public void EscudoAparece()
     {
