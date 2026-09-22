@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            PlayerMovement playerMovement = collision.GetComponent<PlayerMovement>();
+    [SerializeField] private GameManager gameManager;
 
-            playerMovement.ActivarEscudo();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            gameManager.RecogerEscudo();
 
             Destroy(gameObject);
         }

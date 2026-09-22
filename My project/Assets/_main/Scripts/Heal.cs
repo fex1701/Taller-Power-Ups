@@ -1,7 +1,7 @@
 using UnityEngine;
+
 public class Heal : MonoBehaviour
 {
-  
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private int _heal;
 
@@ -9,11 +9,8 @@ public class Heal : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-             gameObject.SetActive(false);
+            gameObject.SetActive(false);
             _gameManager.CurarVida(_heal);
         }
-
     }
-
-
 }

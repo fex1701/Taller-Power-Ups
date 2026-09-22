@@ -33,16 +33,16 @@ public class IUManager : MonoBehaviour
     {
         switch (_life)
         {
-            case >= 80:
-                Colorvida(Color.green);
-                break;
-
             case < 20:
                 Colorvida(Color.darkRed);
                 break;
 
             case < 80:
                 Colorvida(Color.orange);
+                break;
+
+            case >= 80:
+                Colorvida(Color.green);
                 break;
         }
     }

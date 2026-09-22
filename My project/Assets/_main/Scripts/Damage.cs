@@ -4,9 +4,7 @@ public class Damage : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
     [SerializeField] private int _damage;
-
-
-    private bool puedeHacerDaño = true;
+                     private bool puedeHacerDaño = true;
     [SerializeField] private float tiempoEntreDaños = 0.5f;
 
     private void OnCollisionEnter(Collision collision)
@@ -17,12 +15,11 @@ public class Damage : MonoBehaviour
 
             gameManager.RestarVida(_damage);
 
-            Invoke(nameof(ReactivarDanio), tiempoEntreDaños);
+            Invoke(nameof(ReactivarDaño), tiempoEntreDaños);
         }
-
-     
     }
-    private void ReactivarDanio()
+
+    private void ReactivarDaño()
     {
         puedeHacerDaño = true;
     }

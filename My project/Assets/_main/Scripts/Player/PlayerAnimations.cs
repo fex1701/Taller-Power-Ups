@@ -5,11 +5,15 @@ public class PlayerAnimations : MonoBehaviour
     [SerializeField] private PlayerController playerController;
     [SerializeField] private GroundCheck groundCheck;
     [SerializeField] private Animator animator;
+    [SerializeField] private GameManager gameManager;
+
+    private bool sonidoSaltoReproducido;
 
     void Update()
     {
         ActualizarAnimaciondeMovimiento();
         ActualizarAnimaciondeSalto();
+        RevisarAnimacionSalto();
     }
 
     private void ActualizarAnimaciondeMovimiento()
@@ -30,6 +34,25 @@ public class PlayerAnimations : MonoBehaviour
         if (playerController.estaSaltando == false && groundCheck.EsSuelo == false)
         {
             animator.SetBool("IsRunning", false);
+        }
+    }
+
+    private void RevisarAnimacionSalto()
+    {
+        AnimatorStateInfo estado = animator.GetCurrentAnimatorStateInfo(0);
+
+        bool estaEnJumpUp = estado.IsName("JumpUp");
+
+        if (estaEnJumpUp && !sonidoSaltoReproducido)
+        {
+            sonidoSaltoReproducido = true;
+
+            gameManager.SonidoSalto();
+        }
+
+        if (!estaEnJumpUp)
+        {
+            sonidoSaltoReproducido = false;
         }
     }
 

@@ -98,7 +98,6 @@ public class GameManager : MonoBehaviour
     public void Reiniciar()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -116,9 +115,7 @@ public class GameManager : MonoBehaviour
     public void RecogerGema(int numeroGema)
     {
         gemas[numeroGema] = true;
-
         _iuManager.MostrarGema(numeroGema);
-
         ComprobarGemas();
     }
 
@@ -140,12 +137,29 @@ public class GameManager : MonoBehaviour
         colliderPuerta.isTrigger = true;
     }
 
+    // ESCUDO
+
+    public void RecogerEscudo()
+    {
+        _movimientodeljugador.ActivarEscudo();
+        _audioManager.SonidoEscudo();
+    }
+
+    // VELOCIDAD
+
+    public void RecogerVelocidad()
+    {
+        _movimientodeljugador.IncrementoVelocidad(5f);
+        _movimientodeljugador.IncrementoSalto(10f);
+        _movimientodeljugador.ActivateSeedPowerUp(5, 5);
+
+        _audioManager.SonidoVelocidad();
+    }
     // NIVELES
 
     public void IrAlSiguienteNivel()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene(siguienteNivel);
     }
 
@@ -154,14 +168,12 @@ public class GameManager : MonoBehaviour
     public void Pausar()
     {
         Time.timeScale = 0f;
-
         _iuManager.MostrarPausa();
     }
 
     public void Reanudar()
     {
         Time.timeScale = 1f;
-
         _iuManager.OcultarPausa();
     }
 
@@ -170,28 +182,29 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene("Plataforma");
     }
 
     public void Creditos()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene("Creditos");
     }
 
     public void VolverAlMenu()
     {
         Time.timeScale = 1f;
-
         SceneManager.LoadScene("Menu");
     }
 
     public void Salir()
     {
         Time.timeScale = 1f;
-
         Application.Quit();
+    }
+
+    public void SonidoSalto()
+    {
+        _audioManager.SonidoSalto();
     }
 }

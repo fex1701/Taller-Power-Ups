@@ -11,7 +11,7 @@ public class FollowPlayer : MonoBehaviour
     }
 
    
-     private void Update()
+     private void FixedUpdate()
     {
         agente.destination = jugador.position;
     }

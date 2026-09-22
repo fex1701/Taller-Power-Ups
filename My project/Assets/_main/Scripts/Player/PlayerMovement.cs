@@ -20,11 +20,11 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         normalVelocidad = velocidad;
-        normalSalto= salto;
+        normalSalto = salto;
     }
 
 
-    
+
     private void FixedUpdate()
     {
         Mover();
@@ -34,7 +34,6 @@ public class PlayerMovement : MonoBehaviour
     private void Mover()
     {
         Vector2 playerImputs = ControladordelJugador.ValordeMovimiento;
-        new Vector3(playerImputs.x, rb.linearVelocity.y, playerImputs.y);
 
         rb.linearVelocity = new Vector3(playerImputs.x * velocidad, rb.linearVelocity.y, playerImputs.y * velocidad);
     }
@@ -53,7 +52,7 @@ public class PlayerMovement : MonoBehaviour
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         rb.MoveRotation(targetRotation);
     }
-   
+
 
     private void Salto()
     {
@@ -68,17 +67,17 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    public void IncrementoSalto (float amount)
+    public void IncrementoSalto(float amount)
     {
         salto += amount;
     }
 
-    public void IncrementoVelocidad (float amount)
+    public void IncrementoVelocidad(float amount)
     {
         velocidad += amount;
     }
 
-    
+
     public IEnumerator BonusSpeed(int time)
     {
         //incremento

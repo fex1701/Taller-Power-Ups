@@ -1,29 +1,16 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Velocity : MonoBehaviour
 {
+    [SerializeField] private GameManager gameManager;
 
-
-    [SerializeField] private float IncrementoVelocidad = 5f;
-    
-    [SerializeField] private PlayerMovement MovimientodelJugador;
-
-    [SerializeField] private float IncrementodeVelocidadSalto = 10f;
-
-    private void OnTriggerEnter(Collider collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            Destroy(this.gameObject);
+            gameManager.RecogerVelocidad();
 
-
-            collision.GetComponent<PlayerMovement>().IncrementoVelocidad(IncrementoVelocidad);
-            collision.GetComponent<PlayerMovement>().IncrementoSalto(IncrementodeVelocidadSalto);
-            MovimientodelJugador.ActivateSeedPowerUp(5, 5);
-
+            Destroy(gameObject);
         }
-
     }
 }
-
