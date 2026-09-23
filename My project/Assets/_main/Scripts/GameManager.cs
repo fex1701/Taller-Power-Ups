@@ -115,6 +115,7 @@ public class GameManager : MonoBehaviour
     public void RecogerGema(int numeroGema)
     {
         gemas[numeroGema] = true;
+        _audioManager.SonidoGema();
         _iuManager.MostrarGema(numeroGema);
         ComprobarGemas();
     }
@@ -149,18 +150,20 @@ public class GameManager : MonoBehaviour
 
     public void RecogerVelocidad()
     {
+        _audioManager.SonidoVelocidad();
         _movimientodeljugador.IncrementoVelocidad(5f);
         _movimientodeljugador.IncrementoSalto(10f);
         _movimientodeljugador.ActivateSeedPowerUp(5, 5);
-
-        _audioManager.SonidoVelocidad();
+       
     }
     // NIVELES
 
     public void IrAlSiguienteNivel()
     {
+       
         Time.timeScale = 1f;
         SceneManager.LoadScene(siguienteNivel);
+        _audioManager.SonidoMeta();
     }
 
     // PAUSA
@@ -182,7 +185,7 @@ public class GameManager : MonoBehaviour
     public void Play()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("Plataforma");
+        SceneManager.LoadScene("Nivel 1");
     }
 
     public void Creditos()

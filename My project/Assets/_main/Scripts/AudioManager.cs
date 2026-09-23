@@ -9,6 +9,14 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip sonidoSalto;
     [SerializeField] private AudioClip sonidoEscudo;
     [SerializeField] private AudioClip sonidoVelocidad;
+    [SerializeField] private AudioClip sonidoGema;
+    [SerializeField] private AudioClip sonidoMeta;
+
+
+    public void SonidoGema()
+    {
+        audioSource.PlayOneShot(sonidoGema);
+    }
 
     public void SonidoMuerte()
     {
@@ -34,4 +42,10 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(sonidoVelocidad);
     }
+
+    public void SonidoMeta()
+    {
+        audioSource.PlayOneShot(sonidoMeta);
+    }
+
 }

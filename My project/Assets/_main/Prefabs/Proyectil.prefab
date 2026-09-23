@@ -153,7 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1d3267b09067d249be31bcd3a1da012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ProyectilEnemigo
-  "da\xF1o": 10
-  gameManager: {fileID: 0}
   _damage: 15
-  jugador: {fileID: 0}
+  Proyectil: {fileID: 7740813267888407056}
+  gameManager: {fileID: 0}

@@ -14,6 +14,7 @@ public class EnemigoLanzador : MonoBehaviour
     public float tiempoAntesDeLanzar = 0.5f;
 
     private bool atacando = false;
+    private GameObject proyectilActual;
 
     void Update()
     {
@@ -29,7 +30,7 @@ public class EnemigoLanzador : MonoBehaviour
         {
             ApuntarAlJugador();
 
-            if (!atacando)
+            if (!atacando && proyectilActual == null)
             {
                 StartCoroutine(Atacar());
             }
@@ -64,13 +65,16 @@ public class EnemigoLanzador : MonoBehaviour
 
     void LanzarObjeto()
     {
-        GameObject objeto = Instantiate(
+        if (proyectilActual != null)
+            return;
+
+        proyectilActual = Instantiate(
             objetoLanzable,
             puntoLanzamiento.position,
             puntoLanzamiento.rotation
         );
 
-        Rigidbody rb = objeto.GetComponent<Rigidbody>();
+        Rigidbody rb = proyectilActual.GetComponent<Rigidbody>();
 
         if (rb != null)
         {

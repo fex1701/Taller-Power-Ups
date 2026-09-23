@@ -10,7 +10,6 @@ public class Shield : MonoBehaviour
         {
             gameManager.RecogerEscudo();
 
-            Destroy(gameObject);
         }
     }
 }

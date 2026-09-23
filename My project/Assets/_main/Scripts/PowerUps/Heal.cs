@@ -5,11 +5,10 @@ public class Heal : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private int _heal;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Player"))
         {
-            gameObject.SetActive(false);
             _gameManager.CurarVida(_heal);
         }
     }
