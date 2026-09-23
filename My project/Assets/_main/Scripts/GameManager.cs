@@ -154,17 +154,9 @@ public class GameManager : MonoBehaviour
         _movimientodeljugador.IncrementoVelocidad(5f);
         _movimientodeljugador.IncrementoSalto(10f);
         _movimientodeljugador.ActivateSeedPowerUp(5, 5);
-       
-    }
-    // NIVELES
 
-    public void IrAlSiguienteNivel()
-    {
-       
-        Time.timeScale = 1f;
-        SceneManager.LoadScene(siguienteNivel);
-        _audioManager.SonidoMeta();
     }
+
 
     // PAUSA
 
@@ -209,5 +201,20 @@ public class GameManager : MonoBehaviour
     public void SonidoSalto()
     {
         _audioManager.SonidoSalto();
+    }
+
+    public void RecogerMeta()
+    {
+        Time.timeScale = 0f;
+        _iuManager.MostrarContinuar();
+        _audioManager.SonidoMeta();
+    }
+
+    public void IrAlSiguienteNivel()
+    {
+        Debug.Log("Siguiente nivel: " + siguienteNivel);
+
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(siguienteNivel);
     }
 }

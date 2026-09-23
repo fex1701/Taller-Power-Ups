@@ -7,6 +7,8 @@ public class IUManager : MonoBehaviour
     [SerializeField] private GameObject perdisteIU;
     [SerializeField] private GameObject[] imagenesGemas;
 
+    [SerializeField] private GameObject pantallaContinuar;
+
     [SerializeField] private GameObject menuPausa;
 
     [SerializeField] private GameObject BotonPausa;
@@ -70,5 +72,10 @@ public class IUManager : MonoBehaviour
     {
         menuPausa.SetActive(false);
 
+    }
+
+    public void MostrarContinuar()
+    {
+        pantallaContinuar.SetActive(true);
     }
 }

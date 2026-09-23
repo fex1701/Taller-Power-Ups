@@ -4,11 +4,12 @@ public class Meta : MonoBehaviour
 {
     [SerializeField] private GameManager gameManager;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            gameManager.IrAlSiguienteNivel();
+            gameManager.RecogerMeta();
+          
         }
     }
 }
