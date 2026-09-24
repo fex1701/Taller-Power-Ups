@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
         _moverAccion = InputSystem.actions.FindAction("Move");
         _SaltarAccion = InputSystem.actions.FindAction("Jump");
 
-        Physics.gravity = new Vector3(0f, -70f, 0f);
+       
     }
 
     void Update()

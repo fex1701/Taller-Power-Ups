@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,11 @@ public class IUManager : MonoBehaviour
     [SerializeField] private GameObject BotonPausa;
 
     [SerializeField] private GameManager gameManager;
+
+    [SerializeField] private TMP_Text NumeroVelocidad;
+    [SerializeField] private GameObject ContadorVelocidad;
+
+    private int cantidadVelocidad = 0;
 
     private void Start()
     {
@@ -53,15 +59,12 @@ public class IUManager : MonoBehaviour
     {
         perdisteIU.SetActive(true);
         BotonPausa.SetActive(false);
-
     }
-
 
     public void MostrarGema(int numeroGema)
     {
         imagenesGemas[numeroGema].SetActive(true);
     }
-
 
     public void MostrarPausa()
     {
@@ -71,11 +74,28 @@ public class IUManager : MonoBehaviour
     public void OcultarPausa()
     {
         menuPausa.SetActive(false);
-
     }
 
     public void MostrarContinuar()
     {
         pantallaContinuar.SetActive(true);
+    }
+
+    public void AumentarContadorVelocidad()
+    {
+        cantidadVelocidad++;
+
+        NumeroVelocidad.text = cantidadVelocidad.ToString();
+
+        ContadorVelocidad.SetActive(true);
+    }
+
+    public void ReiniciarContadorVelocidad()
+    {
+        cantidadVelocidad = 0;
+
+        NumeroVelocidad.text = cantidadVelocidad.ToString();
+
+        ContadorVelocidad.SetActive(false);
     }
 }
