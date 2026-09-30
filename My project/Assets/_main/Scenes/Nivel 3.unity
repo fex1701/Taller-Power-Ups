@@ -5096,10 +5096,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1359263345}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8465687339433353339, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 488199432}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
 --- !u!114 &488199424 stripped
 MonoBehaviour:
@@ -5159,20 +5156,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
   m_PrefabInstance: {fileID: 488199423}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &488199432
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 488199427}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42dbef4d7682e146ae058952ffdb589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shield
-  gameManager: {fileID: 639093668}
-  powerUpManager: {fileID: 0}
 --- !u!1001 &502205045
 PrefabInstance:
   m_ObjectHideFlags: 0
