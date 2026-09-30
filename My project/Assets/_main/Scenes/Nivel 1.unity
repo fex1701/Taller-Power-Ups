@@ -1532,6 +1532,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 498905079}
+    - target: {fileID: 6151019895485645846, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+      propertyPath: powerUpManager
+      value: 
+      objectReference: {fileID: 292238427}
     - target: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
       propertyPath: respawnDelay
       value: 3
@@ -1545,6 +1549,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+--- !u!114 &292238427 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+  m_PrefabInstance: {fileID: 292238426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece8f9eb21ad4e5409a294ce44708f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
 --- !u!1001 &296635558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1776,6 +1791,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 498905079}
+    - target: {fileID: 6151019895485645846, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+      propertyPath: powerUpManager
+      value: 
+      objectReference: {fileID: 313327559}
     - target: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
       propertyPath: respawnDelay
       value: 3
@@ -1789,6 +1808,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+--- !u!114 &313327559 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+  m_PrefabInstance: {fileID: 313327558}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece8f9eb21ad4e5409a294ce44708f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
 --- !u!1001 &327017393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1888,6 +1918,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 498905079}
+    - target: {fileID: 1079540736625500608, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
+      propertyPath: powerUpManager
+      value: 
+      objectReference: {fileID: 345985283}
     - target: {fileID: 4900368377677800601, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.6
@@ -1942,6 +1976,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4900368377677800601, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
   m_PrefabInstance: {fileID: 345985281}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &345985283 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1275108671835891327, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
+  m_PrefabInstance: {fileID: 345985281}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece8f9eb21ad4e5409a294ce44708f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
 --- !u!1001 &361264047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2579,6 +2624,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 498905079}
+    - target: {fileID: 6151019895485645846, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+      propertyPath: powerUpManager
+      value: 
+      objectReference: {fileID: 421554712}
     - target: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
       propertyPath: respawnDelay
       value: 3
@@ -2592,6 +2641,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+--- !u!114 &421554712 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+  m_PrefabInstance: {fileID: 421554711}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece8f9eb21ad4e5409a294ce44708f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
 --- !u!1001 &444770968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4063,6 +4123,10 @@ PrefabInstance:
       propertyPath: _gameManager
       value: 
       objectReference: {fileID: 498905079}
+    - target: {fileID: 6151019895485645846, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+      propertyPath: powerUpManager
+      value: 
+      objectReference: {fileID: 635122871}
     - target: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
       propertyPath: respawnDelay
       value: 3
@@ -4076,6 +4140,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+--- !u!114 &635122871 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6721340828289970022, guid: 1960f4b42117b3948a72d9ee92e5fa0e, type: 3}
+  m_PrefabInstance: {fileID: 635122870}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece8f9eb21ad4e5409a294ce44708f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
 --- !u!1001 &663874562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9724,6 +9799,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 498905079}
+    - target: {fileID: 3442573088132616179, guid: ab452428f880f94408e515179013cd5a, type: 3}
+      propertyPath: powerUpManager
+      value: 
+      objectReference: {fileID: 1632543215}
     - target: {fileID: 4322897973288729163, guid: ab452428f880f94408e515179013cd5a, type: 3}
       propertyPath: m_Name
       value: Velocidad
@@ -9794,6 +9873,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8086284542369417956, guid: ab452428f880f94408e515179013cd5a, type: 3}
   m_PrefabInstance: {fileID: 1632543213}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1632543215 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6059080349968759114, guid: ab452428f880f94408e515179013cd5a, type: 3}
+  m_PrefabInstance: {fileID: 1632543213}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece8f9eb21ad4e5409a294ce44708f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
 --- !u!1 &1633200566
 GameObject:
   m_ObjectHideFlags: 0
@@ -11351,10 +11441,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1173515039}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8465687339433353339, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1825994546}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
 --- !u!114 &1825994538 stripped
 MonoBehaviour:
@@ -11414,19 +11501,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9095012183288462017, guid: cf6b88567216ec04ab07ae47fd8c3227, type: 3}
   m_PrefabInstance: {fileID: 1825994537}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1825994546
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825994541}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d42dbef4d7682e146ae058952ffdb589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shield
-  gameManager: {fileID: 498905079}
 --- !u!1 &1836909648
 GameObject:
   m_ObjectHideFlags: 0
@@ -12526,6 +12600,10 @@ PrefabInstance:
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 498905079}
+    - target: {fileID: 1079540736625500608, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
+      propertyPath: powerUpManager
+      value: 
+      objectReference: {fileID: 1994811811}
     - target: {fileID: 4900368377677800601, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.54
@@ -12580,6 +12658,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4900368377677800601, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
   m_PrefabInstance: {fileID: 1994811809}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1994811811 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1275108671835891327, guid: a7a92e8311c5dca4995afe94a5f6302c, type: 3}
+  m_PrefabInstance: {fileID: 1994811809}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ece8f9eb21ad4e5409a294ce44708f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpManager
 --- !u!1001 &1994990643
 PrefabInstance:
   m_ObjectHideFlags: 0

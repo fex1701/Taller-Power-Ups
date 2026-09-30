@@ -14,28 +14,19 @@ public class PowerUpManager : MonoBehaviour
         _renderer = GetComponent<Renderer>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void RecogerPowerUp()
     {
-        if (other.CompareTag("Player"))
-        {
-            StartCoroutine(DisableAndRespawnRoutine());
-        }
+        StartCoroutine(DisableAndRespawnRoutine());
     }
 
     private IEnumerator DisableAndRespawnRoutine()
     {
-        yield return new WaitForFixedUpdate();
-
-        SetBoosterState(false);
+        _collider.enabled = false;
+        _renderer.enabled = false;
 
         yield return new WaitForSeconds(respawnDelay);
 
-        SetBoosterState(true);
-    }
-
-    private void SetBoosterState(bool isActive)
-    {
-        if (_collider != null) _collider.enabled = isActive;
-        if (_renderer != null) _renderer.enabled = isActive;
+        _collider.enabled = true;
+        _renderer.enabled = true;
     }
 }
