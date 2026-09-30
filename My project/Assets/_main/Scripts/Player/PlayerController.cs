@@ -3,41 +3,30 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    private InputAction moveAction;
-    private InputAction jumpAction;
+    [SerializeField] private InputAction _moverAccion;
+    [SerializeField] private InputAction _SaltarAccion;
 
-    public Vector2 MoveValue { get; private set; }
-    public bool isJump { get; private set; }
+    [SerializeField] private IUManager _iuManager;
 
-    public bool isGround;
+    public Vector2 ValordeMovimiento { get; private set; }
+    public bool estaSaltando { get; private set; }
+
 
     void Awake()
     {
-        moveAction = InputSystem.actions.FindAction("Move");
-        jumpAction = InputSystem.actions.FindAction("Jump");
+        _moverAccion = InputSystem.actions.FindAction("Move");
+        _SaltarAccion = InputSystem.actions.FindAction("Jump");
 
-        Physics.gravity = new Vector3(0f, -100f, 0f);
+       
     }
 
     void Update()
     {
-        MoveValue = moveAction.ReadValue<Vector2>();
-        isJump = jumpAction.IsPressed();
+        ValordeMovimiento = _moverAccion.ReadValue<Vector2>();
+        estaSaltando = _SaltarAccion.IsPressed();
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGround = true;
-        }
-    }
+ 
 
-    private void OnCollisionExit(Collision collision) 
-    { 
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            isGround = false;
-        }
-    }
+  
 }

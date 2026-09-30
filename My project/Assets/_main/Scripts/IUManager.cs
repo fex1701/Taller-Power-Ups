@@ -1,0 +1,101 @@
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class IUManager : MonoBehaviour
+{
+    [SerializeField] private Image Contadordevida;
+    [SerializeField] private GameObject perdisteIU;
+    [SerializeField] private GameObject[] imagenesGemas;
+
+    [SerializeField] private GameObject pantallaContinuar;
+
+    [SerializeField] private GameObject menuPausa;
+
+    [SerializeField] private GameObject BotonPausa;
+
+    [SerializeField] private GameManager gameManager;
+
+    [SerializeField] private TMP_Text NumeroVelocidad;
+    [SerializeField] private GameObject ContadorVelocidad;
+
+    private int cantidadVelocidad = 0;
+
+    private void Start()
+    {
+        Contadordevida.color = Color.cyan;
+        Contadordevida.fillAmount = 1;
+    }
+
+    public void Colorvida(Color color)
+    {
+        Contadordevida.color = color;
+    }
+
+    public void FillAmount_Colorvida(float fillAmount)
+    {
+        Contadordevida.fillAmount = fillAmount;
+    }
+
+    public void ActualizarColorVida(int _life)
+    {
+        switch (_life)
+        {
+            case < 20:
+                Colorvida(Color.darkRed);
+                break;
+
+            case < 80:
+                Colorvida(Color.orange);
+                break;
+
+            case >= 80:
+                Colorvida(Color.green);
+                break;
+        }
+    }
+
+    public void juegoterminado()
+    {
+        perdisteIU.SetActive(true);
+        BotonPausa.SetActive(false);
+    }
+
+    public void MostrarGema(int numeroGema)
+    {
+        imagenesGemas[numeroGema].SetActive(true);
+    }
+
+    public void MostrarPausa()
+    {
+        menuPausa.SetActive(true);
+    }
+
+    public void OcultarPausa()
+    {
+        menuPausa.SetActive(false);
+    }
+
+    public void MostrarContinuar()
+    {
+        pantallaContinuar.SetActive(true);
+    }
+
+    public void AumentarContadorVelocidad()
+    {
+        cantidadVelocidad++;
+
+        NumeroVelocidad.text = cantidadVelocidad.ToString();
+
+        ContadorVelocidad.SetActive(true);
+    }
+
+    public void ReiniciarContadorVelocidad()
+    {
+        cantidadVelocidad = 0;
+
+        NumeroVelocidad.text = cantidadVelocidad.ToString();
+
+        ContadorVelocidad.SetActive(false);
+    }
+}
